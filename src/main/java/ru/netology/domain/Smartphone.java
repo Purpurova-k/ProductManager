@@ -39,4 +39,17 @@ public class Smartphone extends Product {
                 "producer='" + producer + '\'' +
                 '}';
     }
+
+
+    @Override
+    public boolean matches(String search) {
+        if (getName().contains(search)) {
+            return true;
+        }
+        if (getProducer().contains(search)) {
+            return true;
+        }
+        return false;
+    }
 }
+

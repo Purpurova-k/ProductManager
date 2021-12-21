@@ -8,12 +8,12 @@ import java.util.Objects;
 public class Book extends Product {
     private String author;
 
-    public Book () {
+    public Book() {
         super();
     }
 
 
-    public Book (int id, String name, int price, String author) {
+    public Book(int id, String name, int price, String author) {
         super(id, name, price);
         this.author = author;
     }
@@ -38,5 +38,17 @@ public class Book extends Product {
         return "Book{" +
                 "author='" + author + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public boolean matches(String search) {
+        if (getName().contains(search)) {
+            return true;
+        }
+        if (getAuthor().contains(search)) {
+            return true;
+        }
+        return false;
     }
 }
