@@ -149,4 +149,52 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
         verify(repository).findAll();
     }
+
+
+    @Test
+    public void shouldFindBookMatchesTrue() {
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(book3);
+        manager.add(phone1);
+        manager.add(phone2);
+        manager.add(phone3);
+        assertEquals(true, book1.matches("Пиковая дама"));
+    }
+
+
+    @Test
+    public void shouldFindBookMatchesFalse() {
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(book3);
+        manager.add(phone1);
+        manager.add(phone2);
+        manager.add(phone3);
+        assertEquals(false, book1.matches("Оно"));
+    }
+
+
+    @Test
+    public void shouldFindFhoneMatchesTrue() {
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(book3);
+        manager.add(phone1);
+        manager.add(phone2);
+        manager.add(phone3);
+        assertEquals(true, phone1.matches("IPhone 13 pro"));
+    }
+
+
+    @Test
+    public void shouldFindFhoneMatchesFalse() {
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(book3);
+        manager.add(phone1);
+        manager.add(phone2);
+        manager.add(phone3);
+        assertEquals(false, phone1.matches("IPhone 10"));
+    }
 }
